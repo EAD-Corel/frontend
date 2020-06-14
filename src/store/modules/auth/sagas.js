@@ -11,6 +11,8 @@ function* signIn({ payload }) {
   try {
     const response = yield call(api.post, "/sessions", { email, password });
 
+    console.log("response ->", response);
+
     const user = {
       id: response.data.id,
       name: response.data.name,

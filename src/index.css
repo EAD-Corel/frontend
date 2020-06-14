@@ -1,13 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif !important;
+  outline: 0;
+}
+
+.MuiTypography-root {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.MuiTypography-paragraph {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.MuiTypography-h1 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.MuiTypography-h2 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.MuiTypography-h3 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.MuiTypography-h4 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.MuiTypography-h5 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.MuiTypography-h6 {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.MuiButton-outlinedPrimary {
+  color: #fff !important;
+  background-color: #6576ff !important;
+  border-color: #6576ff !important;
+  text-transform: none !important;
+}
+
+.MuiButton-outlinedSecondary {
+  color: #fff !important;
+  background-color: #364a63 !important;
+  border-color: #364a63 !important;
+  text-transform: none !important;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
