@@ -2,7 +2,6 @@ import { all, takeLatest, call, put } from "redux-saga/effects";
 import { decode } from "jsonwebtoken";
 
 import api from "../../../services/api";
-
 import { signInSuccess, signFailure, signOut } from "./actions";
 
 function* signIn({ payload }) {
@@ -11,13 +10,7 @@ function* signIn({ payload }) {
   try {
     const response = yield call(api.post, "/sessions", { email, password });
 
-    console.log("response ->", response);
-
-    const user = {
-      id: response.data.id,
-      name: response.data.name,
-      email: response.data.email,
-    };
+    const user = response.data;
 
     api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
     yield put(signInSuccess(response.data.token, user));

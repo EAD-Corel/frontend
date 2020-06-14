@@ -1,11 +1,7 @@
 import produce from "immer";
 
 const INITIAL_STATE = {
-  profile: {
-    id: "",
-    name: "",
-    email: "",
-  },
+  data: null,
 };
 
 export default function user(state = INITIAL_STATE, action) {
@@ -14,16 +10,12 @@ export default function user(state = INITIAL_STATE, action) {
   return produce(state, (draft) => {
     switch (type) {
       case "@auth/SIGN_IN_SUCCESS": {
-        draft.profile = payload.user;
+        draft.data = payload.user;
         break;
       }
 
       case "@auth/SIGN_OUT": {
-        draft.profile = {
-          id: "",
-          name: "",
-          email: "",
-        };
+        draft.data = null;
         break;
       }
 
