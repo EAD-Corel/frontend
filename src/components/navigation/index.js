@@ -1,6 +1,8 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
+import React, { useState } from "react";
+import { Grid, Collapse } from "@material-ui/core";
 import ProfileOptions from "./profileOptions";
+import { useSelector } from "react-redux";
+import history from "../../services/history";
 import {
   Main,
   Menu,
@@ -11,12 +13,34 @@ import {
   Option,
   IconCourses,
   Text,
-  IconConfig,
+  IconHome,
   IconSupport,
   Children,
+  IconModule,
+  Option2,
+  IconClass,
+  TextClass,
 } from "./styles";
 
 const NavigationComponent = ({ children }) => {
+  const [open, setOpen] = useState(false);
+  const [key, setKey] = useState(null);
+
+  const modules = useSelector((state) => state.getModules);
+
+  const collapseClass = (key) => {
+    setOpen(!open);
+    setKey(key);
+  };
+
+  const pushLession = (data) => {
+    history.push("/view", { data });
+  };
+
+  const redirect = (route) => {
+    history.push(route);
+  };
+
   return (
     <Main>
       <Grid container>
@@ -27,18 +51,40 @@ const NavigationComponent = ({ children }) => {
                 Birdie <SubLogo variant="h1">EAD</SubLogo>
               </Logo>
             </SessionLogo>
-            <Option>
-              <IconCourses />
-              <Text>Cursos</Text>
-            </Option>
-            <Option>
-              <IconConfig />
-              <Text>Configurações</Text>
-            </Option>
-            <Option>
-              <IconSupport />
-              <Text>Suporte</Text>
-            </Option>
+            {modules && !modules.data && (
+              <>
+                <Option onClick={() => redirect("/")}>
+                  <IconHome />
+                  <Text>Início</Text>
+                </Option>
+                <Option onClick={() => redirect("/courses")}>
+                  <IconCourses />
+                  <Text>Cursos</Text>
+                </Option>
+                <Option onClick={() => redirect("/support")}>
+                  <IconSupport />
+                  <Text>Suporte</Text>
+                </Option>
+              </>
+            )}
+            {modules &&
+              modules.data &&
+              modules.data.map((data, i) => (
+                <>
+                  <Option key={i} onClick={() => collapseClass(i)}>
+                    <IconModule />
+                    <Text>{data.name}</Text>
+                  </Option>
+                  {data.classes.map((data, index) => (
+                    <Collapse in={key === i ? open : false}>
+                      <Option2 key={index} onClick={() => pushLession(data)}>
+                        <IconClass />
+                        <TextClass>{data.name}</TextClass>
+                      </Option2>
+                    </Collapse>
+                  ))}
+                </>
+              ))}
           </Menu>
         </Grid>
         <Grid item xs={12} md={9} lg={10}>

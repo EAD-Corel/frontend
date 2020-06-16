@@ -45,11 +45,12 @@ const Courses = () => {
         {courses && courses.length && !loading ? (
           <Grid container spacing={2}>
             {courses.map((data, i) => (
-              <Grid item xs={12} md={3} lg={3}>
+              <Grid item xs={12} md={3} lg={3} key={i}>
                 <CardCourse
                   image={data.image}
                   name={data.name}
                   text={data.description}
+                  id={data.id}
                 />
               </Grid>
             ))}

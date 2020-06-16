@@ -1,10 +1,17 @@
 import styled from "styled-components";
 import { Avatar, Typography } from "@material-ui/core";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { AiOutlineCompass, AiOutlineTool, AiOutlineUser } from "react-icons/ai";
+import {
+  AiOutlineCompass,
+  AiOutlineTool,
+  AiOutlineUser,
+  AiOutlineBlock,
+  AiOutlineHome,
+} from "react-icons/ai";
 import { TiSupport } from "react-icons/ti";
 import { FiLogOut } from "react-icons/fi";
-import { RiAdminLine } from "react-icons/ri";
+import { RiAdminLine, RiLockPasswordLine } from "react-icons/ri";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const ICON = `
   color: inherit !important;
@@ -19,6 +26,8 @@ const ICON2 = `
 
 export const Main = styled.div`
   background-color: #f5f6fa;
+  position: fixed;
+  width: 100%;
 `;
 
 export const Menu = styled.div`
@@ -124,11 +133,15 @@ export const IconCourses = styled(AiOutlineCompass)`
   ${ICON}
 `;
 
-export const IconConfig = styled(AiOutlineTool)`
+export const IconHome = styled(AiOutlineHome)`
   ${ICON}
 `;
 
 export const IconSupport = styled(TiSupport)`
+  ${ICON}
+`;
+
+export const IconModule = styled(AiOutlineBlock)`
   ${ICON}
 `;
 
@@ -140,6 +153,7 @@ export const Text = styled(Typography)`
 
 export const Children = styled.div`
   margin: 40px 10px;
+  max-height: 90vh;
   overflow: auto;
 `;
 
@@ -189,6 +203,10 @@ export const IconUser = styled(AiOutlineUser)`
   ${ICON2}
 `;
 
+export const IconPassword = styled(RiLockPasswordLine)`
+  ${ICON2}
+`;
+
 export const IconConfigTo = styled(AiOutlineTool)`
   ${ICON2}
 `;
@@ -224,4 +242,32 @@ export const FlexTo = styled.div`
   &:hover {
     color: #868aff !important;
   }
+`;
+
+export const Option2 = styled.div`
+  color: #6e82a5;
+  display: flex;
+  padding-left: 40px;
+  padding-top: 10px;
+  cursor: pointer;
+
+  &:hover {
+    color: #6879ff;
+  }
+`;
+
+export const IconClass = styled(IoIosCloseCircleOutline)`
+  color: inherit !important;
+  font-size: 12px !important;
+  margin-top: 3px !important;
+`;
+
+export const TextClass = styled(Typography)`
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  line-height: 1.25rem !important;
+  color: inherit !important;
+  padding-left: 5px !important;
 `;
