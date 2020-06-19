@@ -46,7 +46,7 @@ const NavigationComponent = ({ children }) => {
       <Grid container>
         <Grid item xs={12} md={3} lg={2}>
           <Menu>
-            <SessionLogo>
+            <SessionLogo onClick={() => redirect("/")}>
               <Logo variant="h1">
                 Birdie <SubLogo variant="h1">EAD</SubLogo>
               </Logo>

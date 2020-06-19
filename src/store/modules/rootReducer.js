@@ -7,6 +7,7 @@ import getCourses from "./getCourses/reducer";
 import getModules from "./getModules/reducer";
 import getClass from "./getClass/reducer";
 import getWarnings from "./getWarning/reducer";
+import getUSers from "./getUsers/reducer";
 
 export default combineReducers({
   auth,
@@ -16,4 +17,5 @@ export default combineReducers({
   getModules,
   getClass,
   getWarnings,
+  getUSers,
 });

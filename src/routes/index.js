@@ -10,6 +10,7 @@ import ViewClass from "../pages/viewClass";
 import Support from "../pages/support";
 import Profile from "../pages/profile";
 import AlterPassword from "../pages/alterPassword";
+import Administration from "../pages/administration";
 
 const Routes = () => {
   return (
@@ -23,6 +24,7 @@ const Routes = () => {
         <Route path="/support" component={Support} isProtected />
         <Route path="/profile" component={Profile} isProtected />
         <Route path="/alterPassword" component={AlterPassword} isProtected />
+        <Route path="/administration" component={Administration} isProtected />
       </Navigation>
     </Switch>
   );

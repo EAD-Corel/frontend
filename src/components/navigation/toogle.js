@@ -60,7 +60,7 @@ const Toogle = ({ open, user, close }) => {
             <TextToogle>Configurações</TextToogle>
           </FlexTo> */}
           {user && user.admin && (
-            <FlexTo>
+            <FlexTo onClick={() => redirect("/administration")}>
               <IconAdmin />
               <TextToogle>Adminsitração</TextToogle>
             </FlexTo>

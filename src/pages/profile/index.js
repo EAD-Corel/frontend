@@ -41,7 +41,6 @@ const Profile = () => {
   };
 
   const getImage = (ev) => {
-    console.log(ev);
     setInfo({ ...info, avatar: ev.base64 });
   };
 
@@ -77,6 +76,7 @@ const Profile = () => {
             required
           />
           <Spacig />
+          <p> Foto:</p>
           <FileBase64 multiple={false} onDone={getImage} />
 
           <Spacig />

@@ -6,7 +6,11 @@ function* getCourses({ payload }) {
   const { token } = payload;
 
   try {
-    const response = yield call(api.get, `/enrollments`);
+    const response = yield call(api.get, `/courses`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     const courses = response.data;
 

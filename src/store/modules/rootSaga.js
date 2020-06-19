@@ -4,9 +4,11 @@ import auth from "./auth/sagas";
 import user from "./user/sagas";
 import getMyCourses from "./getMyCourses/sagas";
 import getCourse from "./getCourse/sagas";
+import getCourses from "./getCourses/sagas";
 import getModules from "./getModules/sagas";
 import getClass from "./getClass/sagas";
 import getWarnings from "./getWarning/sagas";
+import getUsers from "./getUsers/sagas";
 
 export default function* rootSaga() {
   return yield all([
@@ -14,8 +16,10 @@ export default function* rootSaga() {
     user,
     getMyCourses,
     getCourse,
+    getCourses,
     getModules,
     getClass,
     getWarnings,
+    getUsers,
   ]);
 }

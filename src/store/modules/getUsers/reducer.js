@@ -6,24 +6,24 @@ const INITIAL_STATE = {
   data: null,
 };
 
-export default function getCourses(state = INITIAL_STATE, action) {
+export default function getUsers(state = INITIAL_STATE, action) {
   const { type, payload } = action;
 
   return produce(state, (draft) => {
     switch (type) {
-      case "@getCourses/GETCOURSES_IN_REQUEST": {
+      case "@getUsers/GETUSERS_IN_REQUEST": {
         draft.loading = true;
         break;
       }
 
-      case "@getCourses/GETCOURSES_IN_SUCCESS": {
-        draft.data = payload.courses;
+      case "@getUsers/GETUSERS_IN_SUCCESS": {
+        draft.data = payload.users;
         draft.error = false;
         draft.loading = false;
         break;
       }
 
-      case "@getCourses/GETCOURSES_FAILURE": {
+      case "@getUsers/GETUSERS_FAILURE": {
         draft.error = true;
         draft.loading = false;
         break;

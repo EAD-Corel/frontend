@@ -154,7 +154,6 @@ export const Text = styled(Typography)`
 export const Children = styled.div`
   margin: 40px 10px;
   max-height: 90vh;
-  overflow: auto;
 `;
 
 export const BodyToogle = styled.div`
@@ -167,6 +166,7 @@ export const BodyToogle = styled.div`
   right: 9px;
   box-shadow: 0 3px 12px 1px rgba(44, 55, 130, 0.15);
   border-radius: 4px;
+  z-index: 1004;
 `;
 
 export const HeaderToogle = styled.div`

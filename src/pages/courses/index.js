@@ -35,6 +35,10 @@ const Courses = () => {
     }
   }, [user]);
 
+  useMemo(() => {
+    console.log("->>>>", courses);
+  }, [courses]);
+
   return (
     <>
       <Title
