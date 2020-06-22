@@ -3,7 +3,7 @@ import { Typography } from "@material-ui/core";
 
 export const Body = styled.div`
   max-width: 960px;
-  margin: 0 auto 50px auto;
+  margin: 0 auto 150px auto;
 `;
 
 export const Title = styled(Typography)`

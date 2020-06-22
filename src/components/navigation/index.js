@@ -87,7 +87,7 @@ const NavigationComponent = ({ children }) => {
               ))}
           </Menu>
         </Grid>
-        <Grid item xs={12} md={9} lg={10}>
+        <Grid item xs={12} md={9} lg={10} style={{ overflow: "auto" }}>
           <Header>
             <Grid container justify="flex-end">
               <Grid item xs={12} md={2} lg={2}>

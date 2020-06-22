@@ -29,7 +29,7 @@ const ViewClass = ({ ...props }) => {
               language="pt"
               showVideoQuality={false}
               themeColor="#868aff"
-              srcOrigin={`http://localhost:4001/video/${props.location.state.data.video}`}
+              srcOrigin={`https://api.coreldrawiniciante.com.br:4001/video/${props.location.state.data.video}`}
             />
             <Description>{props.location.state.data.description}</Description>
           </Center>

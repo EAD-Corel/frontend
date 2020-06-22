@@ -44,6 +44,8 @@ export const Header = styled.div`
   height: 65px;
   display: flex;
   align-items: center;
+  position: absolute;
+  width: 81%;
 `;
 
 export const BodyProfile = styled.div`
@@ -152,8 +154,9 @@ export const Text = styled(Typography)`
 `;
 
 export const Children = styled.div`
-  margin: 40px 10px;
+  margin: 100px 10px;
   max-height: 90vh;
+  padding-bottom: 10px;
 `;
 
 export const BodyToogle = styled.div`
