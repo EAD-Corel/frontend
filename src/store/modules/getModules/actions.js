@@ -17,3 +17,9 @@ export function getModulesFailure() {
     type: "@getModules/GETMODULES_FAILURE",
   };
 }
+
+export function cleanModules() {
+  return {
+    type: "@getModules/CLEAN_MODULES",
+  };
+}

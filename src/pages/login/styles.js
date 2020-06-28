@@ -17,6 +17,7 @@ export const Body = styled.div`
 
   @media (max-width: 768px) {
     width: 90%;
+    margin: 0 auto;
   }
 `;
 

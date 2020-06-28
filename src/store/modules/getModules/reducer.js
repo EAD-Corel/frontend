@@ -29,6 +29,13 @@ export default function getCourses(state = INITIAL_STATE, action) {
         break;
       }
 
+      case "@getModules/CLEAN_MODULES": {
+        draft.data = null;
+        draft.error = false;
+        draft.loading = false;
+        break;
+      }
+
       default:
     }
   });

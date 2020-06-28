@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Grid, Collapse } from "@material-ui/core";
 import ProfileOptions from "./profileOptions";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import history from "../../services/history";
+import { cleanModules } from "../../store/modules/getModules/actions";
 import {
   Main,
   Menu,
@@ -20,12 +21,14 @@ import {
   Option2,
   IconClass,
   TextClass,
+  GridMenu,
 } from "./styles";
 
 const NavigationComponent = ({ children }) => {
   const [open, setOpen] = useState(false);
   const [key, setKey] = useState(null);
 
+  const dispatch = useDispatch();
   const modules = useSelector((state) => state.getModules);
 
   const collapseClass = (key) => {
@@ -38,13 +41,14 @@ const NavigationComponent = ({ children }) => {
   };
 
   const redirect = (route) => {
+    dispatch(cleanModules());
     history.push(route);
   };
 
   return (
     <Main>
       <Grid container>
-        <Grid item xs={12} md={3} lg={2}>
+        <GridMenu item xs={12} md={3} lg={2}>
           <Menu>
             <SessionLogo onClick={() => redirect("/")}>
               <Logo variant="h1">
@@ -67,6 +71,12 @@ const NavigationComponent = ({ children }) => {
                 </Option>
               </>
             )}
+            {modules && modules.data && (
+              <Option onClick={() => redirect("/")}>
+                <IconHome />
+                <Text>Voltar ao ínicio</Text>
+              </Option>
+            )}
             {modules &&
               modules.data &&
               modules.data.map((data, i) => (
@@ -86,7 +96,7 @@ const NavigationComponent = ({ children }) => {
                 </>
               ))}
           </Menu>
-        </Grid>
+        </GridMenu>
         <Grid item xs={12} md={9} lg={10} style={{ overflow: "auto" }}>
           <Header>
             <Grid container justify="flex-end">

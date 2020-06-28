@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Avatar, Typography } from "@material-ui/core";
+import { Avatar, Typography, Grid } from "@material-ui/core";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import {
   AiOutlineCompass,
@@ -46,6 +46,10 @@ export const Header = styled.div`
   align-items: center;
   position: absolute;
   width: 81%;
+
+  @media (max-width: 768px) {
+    width: 89%;
+  }
 `;
 
 export const BodyProfile = styled.div`
@@ -273,4 +277,10 @@ export const TextClass = styled(Typography)`
   line-height: 1.25rem !important;
   color: inherit !important;
   padding-left: 5px !important;
+`;
+
+export const GridMenu = styled(Grid)`
+  @media (max-width: 768px) {
+    display: none !important;
+  }
 `;

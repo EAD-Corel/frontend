@@ -30,10 +30,11 @@ const Course = ({ ...props }) => {
       <Title title={`Curso ${props.location.state.name}`} />
       {warnings &&
         warnings.data &&
-        warnings.data.length &&
+        warnings.data.length ?
         warnings.data.map((data, i) => (
           <Warning title={data.title} subtitle={data.text} />
-        ))}
+        ))
+        : <p>Esse curso não possui nenhum recado no momento!</p> }
     </>
   );
 };
