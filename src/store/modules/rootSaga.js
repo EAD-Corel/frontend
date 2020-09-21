@@ -9,6 +9,7 @@ import getModules from "./getModules/sagas";
 import getClass from "./getClass/sagas";
 import getWarnings from "./getWarning/sagas";
 import getUsers from "./getUsers/sagas";
+import getVideos from "./getVideo/sagas";
 
 export default function* rootSaga() {
   return yield all([
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     getClass,
     getWarnings,
     getUsers,
+    getVideos,
   ]);
 }
