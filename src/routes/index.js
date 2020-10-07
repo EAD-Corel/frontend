@@ -11,11 +11,13 @@ import Support from "../pages/support";
 import Profile from "../pages/profile";
 import AlterPassword from "../pages/alterPassword";
 import Administration from "../pages/administration";
+import Register from "../pages/register";
 
 const Routes = () => {
   return (
     <Switch>
       <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
       <Navigation>
         <Route path="/" exact component={Index} isProtected />
         <Route path="/courses" component={Courses} isProtected />
