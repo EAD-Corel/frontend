@@ -37,3 +37,12 @@ export const MarginTop = styled.div`
 export const Flex = styled.div`
   display: flex;
 `;
+
+export const SessionProgress = styled.div`
+  padding: 26px 0 0 0;
+  max-width: 95%;
+`;
+
+export const PercentProgress = styled.p`
+  color: #8094ae !important;
+`;

@@ -32,3 +32,7 @@ export const Description = styled(Typography)`
   color: #526484 !important;
   margin-top: 30px !important;
 `;
+
+export const ImageInfo = styled.img`
+  width: 100px;
+`;

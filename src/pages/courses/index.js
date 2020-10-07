@@ -30,6 +30,10 @@ const Courses = () => {
   };
 
   useMemo(() => {
+    console.log("user =>", user.enrollments);
+  }, [user]);
+
+  useMemo(() => {
     if (user && user.enrollments && user.enrollments.length) {
       user.enrollments.map((data) => getCourse(data.course));
     }
@@ -59,7 +63,9 @@ const Courses = () => {
               </Grid>
             ))}
           </Grid>
-        ) : null}
+        ) : (
+          <p>Você não possui nenhum curso.</p>
+        )}
         {loading && <Loading />}
       </Content>
     </>

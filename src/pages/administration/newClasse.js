@@ -1,21 +1,21 @@
 import React, { useState, useMemo } from "react";
 import Modal from "../../components/modal";
-import { Grid } from "@material-ui/core";
+import { Grid, LinearProgress } from "@material-ui/core";
 import Input from "../../components/input";
 import Textarea from "../../components/textarea";
 import Button from "../../components/button";
 import Select from "../../components/select";
 import { useSelector, useDispatch } from "react-redux";
-import { SessionBtn } from "./styles";
+import { SessionBtn, SessionProgress, PercentProgress } from "./styles";
 import api from "../../services/api";
 import Swal from "sweetalert2";
 import { getCoursesInRequest } from "../../store/modules/getCourses/actions";
-import { FilePond, registerPlugin } from "react-filepond";
 import "filepond/dist/filepond.min.css";
 
 const NewClasse = ({ open, close }) => {
   const [modules, setModules] = useState([]);
   const [files, setFiles] = useState([]);
+  const [progress, setProgress] = useState(null);
   const [sucess, setSucess] = useState(false);
   const user = useSelector((state) => state.user);
   const [info, setInfo] = useState({
@@ -36,10 +36,6 @@ const NewClasse = ({ open, close }) => {
     dispatch(getCoursesInRequest(token));
   }, []);
 
-  useMemo(() => {
-    console.log(user.data.id);
-  }, [user]);
-
   const newClasses = async (ev) => {
     ev.preventDefault();
 
@@ -47,8 +43,6 @@ const NewClasse = ({ open, close }) => {
 
     data = { ...data, module: parseInt(data.module) };
     data = { ...data, course: parseInt(data.course) };
-
-    console.log("info", data);
 
     try {
       await api.post(`/classes/`, info, {
@@ -82,11 +76,19 @@ const NewClasse = ({ open, close }) => {
 
     try {
       const response = await api.post(`/upload`, formData, {
+        onDownloadProgress: (progressEvent) => {
+          let progress = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
+          console.log("progresso ->>>>", progress);
+          setProgress(progress);
+        },
+
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      setInfo({ ...info, video: response.data.filename });
+      setInfo({ ...info, video: response.data.hash });
       setSucess(true);
     } catch (err) {
       Swal.fire(
@@ -120,7 +122,13 @@ const NewClasse = ({ open, close }) => {
             type="file"
             required
           />
-          {sucess && <p>Enviado com sucesso: {info.video}</p>}
+          {progress && (
+            <SessionProgress>
+              <LinearProgress variant="determinate" value={progress} />
+              <PercentProgress>{progress}%</PercentProgress>
+            </SessionProgress>
+          )}
+          {sucess && <p>Identificação do vídeo: {info.video}</p>}
         </Grid>
       </Grid>
       <form onSubmit={newClasses}>

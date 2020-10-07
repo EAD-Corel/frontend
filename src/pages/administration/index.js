@@ -20,13 +20,13 @@ const Adminstration = () => {
     <>
       <Header>
         <Grid container>
-          <Grid item xs={12} md={7} lg={7}>
+          <Grid item xs={12} md={12} lg={12}>
             <Title>Administração</Title>
             <SubTitle>
               Aqui você poderá administrar os cursos e alunos.
             </SubTitle>
           </Grid>
-          <Grid item xs={12} md={5} lg={5}>
+          <Grid item xs={12} md={12} lg={12}>
             <Right>
               <SessionBtn>
                 <Button
@@ -37,9 +37,9 @@ const Adminstration = () => {
               </SessionBtn>
               <SessionBtn>
                 <Button
-                  label="Novo Aluno"
+                  label="Modulo"
                   color="secondary"
-                  onClick={() => setNewStudent(true)}
+                  onClick={() => setNewModule(true)}
                 />
               </SessionBtn>
               <SessionBtn>
@@ -51,16 +51,16 @@ const Adminstration = () => {
               </SessionBtn>
               <SessionBtn>
                 <Button
-                  label="Matricula"
+                  label="Novo Aluno"
                   color="secondary"
-                  onClick={() => setNewEnrollment(true)}
+                  onClick={() => setNewStudent(true)}
                 />
               </SessionBtn>
               <SessionBtn>
                 <Button
-                  label="Modulo"
+                  label="Matricula"
                   color="primary"
-                  onClick={() => setNewModule(true)}
+                  onClick={() => setNewEnrollment(true)}
                 />
               </SessionBtn>
             </Right>
